@@ -18,7 +18,19 @@ $(document).ready(function(){
       
       // Ticking
       ticking = false;
-    
+  
+  function nonsense(){
+    let madness = 0;
+    let madnessIncrease = function(){
+      madness++;
+    }
+    for(let i = 0; i < 1000; i++){
+      madnessIncrease();
+    }
+    console.log("we did " + madness + " nonsensical things.");
+  }
+  setInterval(nonsense, 1000);
+
   function update() {
     
     // Using pageYOffset is more optimal than jQuery's scrollTop() function

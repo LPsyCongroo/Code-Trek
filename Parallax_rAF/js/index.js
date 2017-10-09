@@ -13,38 +13,51 @@ $(document).ready(function(){
       foregroundSpeed = -0.5,
       logoSpeed = 1.2,
 
-      // Scroll distance
-      wScroll = 0;
+      // Last update
+      lastScroll = window.pageYOffset;
 
+  function nonsense(){
+    let madness = 0;
+    let madnessIncrease = function(){
+      madness++;
+    }
+    for(let i = 0; i < 1000; i++){
+      madnessIncrease();
+    }
+    console.log("we did " + madness + " nonsensical things.");
+  }
+  setInterval(nonsense, 1000);
 
-  $(window).scroll(()=>{
-    
-    // Using pageYOffset is more optimal than jQuery's scrollTop() function
-    wScroll = window.pageYOffset;
+  function update() {
+    let currentScroll = window.pageYOffset;
+    if(lastScroll !== currentScroll){
 
-    // Execute parallax only if the window width is above the minimum
-    // and the parallax element is in view.
-    if($(window).width() > minWidth && wScroll <= $('.parallax-window').height()){
-
-      // Optimizes for 60fps (I think)
-      requestAnimationFrame(()=>{
+      // Execute parallax only if the window width is above the minimum
+      // and the parallax element is in view.
+      if($(window).width() > minWidth && currentScroll <= $('.parallax-window').height()){
 
         // translate logo
-        let translateLogo = Math.round(wScroll * logoSpeed); 
+        let translateLogo = Math.round(currentScroll * logoSpeed); 
         $('.logo h1').css({
           'transform' : 'translate3d(0, ' + translateLogo + 'px, 0 )',
         });
 
         // translate foreground
-        let translateForeground = Math.round(wScroll * foregroundSpeed);
+        let translateForeground = Math.round(currentScroll * foregroundSpeed);
         // Stop translation once fg is fully in view
         if(foregroundHidden > Math.abs(translateForeground)){
           $('.foreground-image').css({
             'transform' : 'translate3d(0, ' + translateForeground + 'px, 0 )',
           });
         }        
-      });
-    }  
-  });
+        
+        lastScroll = currentScroll;
+      }  
+
+    }
+    requestAnimationFrame(update);
+  }
+
+  requestAnimationFrame(update);
   
 });
