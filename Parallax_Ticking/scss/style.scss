@@ -1,0 +1,89 @@
+$pwHeight : 400px;
+$logoColor : #eea;
+*{
+  margin: 0;
+}
+html, body{
+  font-family: "pacifico", sans-serif;
+  font-size: 16px;
+  color: $logoColor;
+  text-align: center;
+}
+.parallax-window{
+  position: relative; //In order to position child elements absolutely
+  background:{
+    image: url("https://static.pexels.com/photos/161064/park-bank-park-bench-wood-161064.jpeg");
+    position: center bottom;
+    attachment: fixed;
+    repeat: no-repeat;
+    size: cover;
+  }
+  height: $pwHeight;
+  overflow: hidden;
+  transform: translate3d(0,0,0);
+
+
+  .logo{
+    position: absolute;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    padding-top: 3rem;
+    transform: translate3d(0,0,0);
+
+    
+    h1{
+      position: absolute;
+      // Create borders above and below the title   
+      margin: 0 20%;
+      width: 60%;
+      padding: 1rem 0;
+      border-top: 3px solid $logoColor;
+      border-bottom: 3px solid $logoColor;
+      transform: translate3d(0,0,0);
+      
+      font-size: 5.4rem;
+      line-height: 6rem;
+      font-weight: normal;
+      color: $logoColor;
+    }
+  }
+  .foreground-image{
+    position: absolute;
+    top: $pwHeight * 0.75;
+    left: 0;
+    height: $pwHeight/2;
+    transform: translate3d(0,0,0);
+  }
+}
+
+.content{
+  position: relative;
+  background: rgba(0,0,0,0.2);
+  img{
+    display: block;
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  h2{
+    position: absolute;
+    font-size: 2.5rem;
+    width: 100%;
+    top: 68%;
+    z-index: 2;
+  }
+}
+
+footer{
+  color: #334;
+  background: $logoColor;
+}
+
+@media (max-width: 700px){
+  .parallax-window{
+    background-attachment: scroll;
+  }
+}
