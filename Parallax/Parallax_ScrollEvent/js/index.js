@@ -14,19 +14,11 @@ $(document).ready(function(){
       logoSpeed = 1.2,
 
       // Scroll distance
-      wScroll = 0;
-
-  function nonsense(){
-    let madness = 0;
-    let madnessIncrease = function(){
-      madness++;
-    }
-    for(let i = 0; i < 1000; i++){
-      madnessIncrease();
-    }
-    console.log("we did " + madness + " nonsensical things.");
-  }
-  setInterval(nonsense, 1000);
+      wScroll = 0,
+      
+      // CSS "translate" properties that change with scroll
+      translateForeground = 0,
+      translateLogo = 0;
 
   $(window).scroll(()=>{
     
@@ -38,13 +30,13 @@ $(document).ready(function(){
     if($(window).width() > minWidth && wScroll <= $('.parallax-window').height()){
 
       // translate logo
-      let translateLogo = Math.round(wScroll * logoSpeed); 
+      translateLogo = Math.round(wScroll * logoSpeed); 
       $('.logo h1').css({
         'transform' : 'translate3d(0, ' + translateLogo + 'px, 0 )',
       });
 
       // translate foreground
-      let translateForeground = Math.round(wScroll * foregroundSpeed);
+      translateForeground = Math.round(wScroll * foregroundSpeed);
       // Stop translation once fg is fully in view
       if(foregroundHidden > Math.abs(translateForeground)){
         $('.foreground-image').css({

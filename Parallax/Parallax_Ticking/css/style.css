@@ -9,21 +9,19 @@ html, body {
 
 .parallax-window {
   position: relative;
-  background-image: url("https://static.pexels.com/photos/161064/park-bank-park-bench-wood-161064.jpeg");
+  background-image: url("../../Assets/parallax-window.jpeg");
   background-position: center bottom;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   height: 400px;
-  overflow: hidden;
-  transform: translate3d(0, 0, 0); }
+  overflow: hidden; }
   .parallax-window .logo {
     position: absolute;
     background: rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 100%;
-    padding-top: 3rem;
-    transform: translate3d(0, 0, 0); }
+    padding-top: 3rem; }
     .parallax-window .logo h1 {
       position: absolute;
       margin: 0 20%;
@@ -31,34 +29,33 @@ html, body {
       padding: 1rem 0;
       border-top: 3px solid #eea;
       border-bottom: 3px solid #eea;
-      transform: translate3d(0, 0, 0);
       font-size: 5.4rem;
       line-height: 6rem;
       font-weight: normal;
-      color: #eea; }
+      color: #eea;
+      transform: translate3d(0, 0, 0);
+      will-change: transform; }
   .parallax-window .foreground-image {
     position: absolute;
     top: 300px;
     left: 0;
     height: 200px;
-    transform: translate3d(0, 0, 0); }
+    transform: translate3d(0, 0, 0);
+    will-change: transform; }
 
 .content {
-  position: relative;
-  background: rgba(0, 0, 0, 0.2); }
+  background: rgba(0, 0, 0, 0.3); }
   .content img {
     display: block;
     position: relative;
-    left: 0;
     width: 100%;
-    height: 100%;
     z-index: -1; }
   .content h2 {
-    position: absolute;
     font-size: 2.5rem;
+    height: 5rem;
     width: 100%;
-    top: 68%;
-    z-index: 2; }
+    padding-bottom: 4rem;
+    margin-top: -9rem; }
 
 footer {
   color: #334;

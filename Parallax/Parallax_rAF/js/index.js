@@ -16,18 +16,6 @@ $(document).ready(function(){
       // Last update
       lastScroll = window.pageYOffset;
 
-  function nonsense(){
-    let madness = 0;
-    let madnessIncrease = function(){
-      madness++;
-    }
-    for(let i = 0; i < 1000; i++){
-      madnessIncrease();
-    }
-    console.log("we did " + madness + " nonsensical things.");
-  }
-  setInterval(nonsense, 1000);
-
   function update() {
     let currentScroll = window.pageYOffset;
     if(lastScroll !== currentScroll){
